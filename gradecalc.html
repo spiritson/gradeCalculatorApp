@@ -8,8 +8,10 @@
 
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-  	
+	<script src="js/modernizr.js"></script> 
+  		
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="js/main.js"></script> <!-- Resource jQuery -->
 	<title>Grade Calculator</title>
 </head>
 <body>
@@ -31,23 +33,42 @@
 						</span>
 						Article &amp; Download
 					</a> -->
-					<a>Grade Calc</a>
+					<a href="#gradeCalculator">
+						Click to Calculate Grade
+					</a>
 				</div> <!-- .cd-title -->
 			</header>
 
-			<div class="cd-content">
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, quod dicta aliquid nemo repellendus distinctio minus dolor aperiam suscipit, ea enim accusantium, deleniti qui sequi sint nihil modi amet eligendi, quidem animi error labore voluptatibus sed. Qui magnam labore, iusto nostrum. Praesentium non, impedit accusantium consequatur officia architecto, mollitia placeat aperiam tenetur pariatur voluptatibus corrupti vitae deserunt! Nostrum non mollitia deserunt ipsam. Sunt quaerat natus cupiditate iure ipsa voluptatibus recusandae ratione vitae amet distinctio, voluptas, minus vero expedita ea fugit similique sit cumque ad id facere? Ab quas, odio neque quis ratione. Natus labore sit esse, porro placeat eum hic.
-				</p>
+			<div class="cd-content" id="gradeCalculator">
+			<form>
+			<label for="homeworkpoints">HomeWork</label>
+      		<input type="text" name="homeworkpoints" id="homeworkpoints" required><br>
 
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. At magnam, nam placeat voluptatem officiis natus dicta necessitatibus ut. Minima, maxime, in recusandae aperiam fugit sed asperiores eum quasi voluptate officia rem culpa qui praesentium voluptatem eos necessitatibus repellat, ullam voluptas delectus distinctio animi. Reiciendis voluptas, doloremque accusantium delectus deleniti dicta id sunt quo omnis eum quidem, odio ex nesciunt explicabo provident rem fugiat, fugit sequi minima animi laudantium cum? Blanditiis possimus eaque facere in nulla quibusdam a quo recusandae aspernatur alias mollitia fugiat commodi itaque dolore, nihil sunt rerum necessitatibus aut, eum tempora numquam obcaecati sit vitae? Asperiores in magnam aliquam, temporibus iure placeat rerum consectetur quis rem facilis, doloribus laudantium dolorum ipsam voluptatibus officia non repellat corrupti harum, eius totam voluptates vero beatae omnis aliquid sequi! Perferendis nihil tenetur eos minima maiores iure quas incidunt reiciendis sequi quidem quis deserunt distinctio tempora aliquid vero dolore, voluptas molestiae exercitationem nobis natus ut corporis! Voluptatibus, adipisci accusamus omnis laboriosam libero totam illum quia perferendis quaerat molestias odio, architecto soluta mollitia dolore asperiores quidem quo incidunt cupiditate voluptates beatae. Amet facilis voluptates quibusdam. Reprehenderit consectetur autem iusto velit aspernatur quidem esse, nostrum officia nisi molestiae dolorem alias, praesentium harum voluptate ut fugiat.
-				</p>
+      		<label for="labpoints">Lab</label>
+      		<input type="text" name="labpoints" id="labpoints" required><br>
 
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa sapiente quod nemo corporis obcaecati maiores animi, doloribus fugit porro deserunt voluptatem unde possimus alias nostrum delectus nisi, laudantium accusamus enim vel molestias velit. Blanditiis eaque impedit necessitatibus dolorum, magnam consectetur est et nam quibusdam ipsum omnis reiciendis ratione odio vitae quo cumque quia autem! Ab omnis ut libero commodi! Ad voluptates sunt accusamus iusto voluptatem, ex distinctio tenetur quia laborum!
-				</p>
+      		<label for="Projectpoints">Project</label>
+      		<input type="text" name="Projectpoints" id="Projectpoints" required><br>
+
+      		<label for="Presentationpoints">Presentation</label>
+      		<input type="text" name="Presentationpoints" id="Presentationpoints" required><br>
+
+      		<label for="Midtermpoints">Midterm</label>
+      		<input type="text" name="Midtermpoints" id="Midtermpoints" required><br>
+
+      		<label for="FinalPoints">Final</label>
+      		<input type="text" name="FinalPoints" id="FinalPoints" required><br>
+      		</form>
+			
+			<button id="compute" onclick="startCalc()">Compute Grade</button><br>
+
+			<div id="finalGradeResult">
+			
 			</div>
+
+			</div>
+
+
 		</section> <!-- .cd-section -->
 	</main>
 	
@@ -118,8 +139,6 @@
 	</nav>
 
 	<div class="cd-overlay"><!-- shadow layer visible when navigation is visible --></div>
-	
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
+
 </body>
 </html>

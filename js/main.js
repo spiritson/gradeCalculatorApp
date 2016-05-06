@@ -384,10 +384,34 @@ function add_finalGrade_Ranges(A_least, A_max, B_least, B_max, C_least, C_max, D
    }
 }
 
+
+function  startCalc(){
+
+    var result=calculate_GPA(
+        $('#homeworkpoints').val(),
+        $('#labpoints').val(),
+        $('#Projectpoints').val(),
+        $('#Presentationpoints').val(),
+        $('#Midtermpoints').val(),
+        $('#FinalPoints').val());
+
+    
+
+    if(typeof(parseInt(result)) != 'number'){
+        alert("Please enter points according to Rubric");
+    }
+    else{
+        document.getElementById("finalGradeResult").innerHTML = "Final Grade is" + result;    
+    }
+    
+
+}
+
 function calculate_GPA(homework_value, lab_value, project_value, presentation_value, midterm_value, final_value) {
     //check if value entered is not either less than least Value and more than max value
     try{
         var return_Val = 'No Grade';
+        console.log("Grade stasrted");
 
         var calulated_homeWork_value;
         var calulated_lab_value;
