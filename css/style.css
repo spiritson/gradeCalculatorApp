@@ -33,6 +33,21 @@ a {
 Main Components 
 
 -------------------------------- */
+
+.inline-sliders{
+  display: inline-block;
+}
+
+.Points{
+  text-align: center;
+  font-size: 36px;
+}
+
+.setter-buttons{
+  position: relative;
+  left:35%;
+}
+
 .cd-nav-trigger {
   /* hamburger icon */
   position: fixed;

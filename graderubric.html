@@ -36,21 +36,112 @@
 
 			<div class="cd-content" id="gradeSetter">
 				<div id="setterPage">
-				<h4>HomeWorks</h4>
-		   		<div id="hw"></div>
-		   		<h4>Labs</h4>
-		   		<div id="labs"></div>
-		   		<h4>Project</h4>
-		   		<div id="project"></div>
-		   		<h4>Presentation</h4>
-		   		<div id="presentation"></div>
-		   		<h4>Midterm</h4>
-		   		<div id="midterm"></div>
-		   		<h4>Final</h4>
-		   		<div id="final"></div>
-		   		</div>
-      		</div>
+					<h2 class="Points"><strong>Points</strong></h2><br>
+					<div class="inline-sliders">
+					<h4>HomeWorks</h4>
+					<div id="hw"></div>
+					</div>
+					<div class="inline-sliders">
+					<h4>Labs</h4>
+		   			<div id="labs"></div>
+					</div>
+		   			
+		   			<div class="inline-sliders">
+		   			<h4>Project</h4>
+		   			<div id="project"></div>
+		   			</div>
+	
+		   			<div class="inline-sliders">
+		   				<h4>Presentation</h4>
+		   				<div id="presentation"></div>
+		   			</div>
+	
+		   			<div class="inline-sliders">
+		   			<h4>Midterm</h4>
+		   			<div id="midterm"></div>
+		   			</div>
+	
+		   			<div class="inline-sliders">
+		   			<h4>Final</h4>
+		   			<div id="final"></div>
+		   			</div>
+		   			<br>
+		   			<div class="setter-buttons">
+      					<button id="setPoints" onclick="update_TestMax_Values()">Set Points</button>
+					</div>
+      			</div>
 
+      			<div id="setPercent">
+					<h2 class="Points"><strong>Scaling Percent</strong></h2><br>
+					<div class="inline-sliders">
+					<h4>HomeWorks</h4>
+					<div id="hw_scale"></div>
+					</div>
+					<div class="inline-sliders">
+					<h4>Labs</h4>
+		   			<div id="labs_scale"></div>
+					</div>
+		   			
+		   			<div class="inline-sliders">
+		   			<h4>Project</h4>
+		   			<div id="project_scale"></div>
+		   			</div>
+	
+		   			<div class="inline-sliders">
+		   				<h4>Presentation</h4>
+		   				<div id="presentation_scale"></div>
+		   			</div>
+	
+		   			<div class="inline-sliders">
+		   			<h4>Midterm</h4>
+		   			<div id="midterm_scale"></div>
+		   			</div>
+	
+		   			<div class="inline-sliders">
+		   			<h4>Final</h4>
+		   			<div id="final_scale"></div>
+		   			</div>
+		   			<br>
+		   			<div class="setter-buttons">
+      					<button id="setScaling" onclick="update_TestPercentage_Values()">Set Percentages</button>
+					</div>
+      			</div>
+
+
+      			<div id="setGradeLetter">
+					<h2 class="Points"><strong>Letter Grade Range</strong></h2><br>
+					
+					<div class="inline-sliders">
+					<h4>A</h4>
+					<div id="A_Grade"></div>
+					</div>
+					
+					<div class="inline-sliders">
+					<h4>B</h4>
+		   			<div id="B_Grade"></div>
+					</div>
+		   			
+		   			<div class="inline-sliders">
+		   			<h4>C</h4>
+		   			<div id="C_Grade"></div>
+		   			</div>
+	
+		   			<div class="inline-sliders">
+		   				<h4>D</h4>
+		   				<div id="D_Grade"></div>
+		   			</div>
+	
+		   			<div class="inline-sliders">
+		   			<h4>F</h4>
+		   			<div id="F_Grade"></div>
+		   			</div>
+	
+		   			<br>
+		   			<div class="setter-buttons">
+      					<button id="setLetterGrade" onclick="update_final_GradeRange()">Set LetterGrade</button>
+					</div>
+      			</div>
+				
       		
 		
 		</section> <!-- .cd-section -->
