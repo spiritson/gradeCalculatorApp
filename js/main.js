@@ -33,8 +33,7 @@ function get_TestMax_Values() {
     //$('#element name').val();
 
     var self=this;
-    console.log("slider called");
-    console.log(test_MaxValues);
+    
 
 	$("#hw").roundSlider({
     radius: 85,
@@ -135,14 +134,13 @@ function update_TestMax_Values(){
 
 function add_Test_MaximumValues(homework_MaxVal, lab_MaxValue, project_MaxValue, presentation_MaxValue, midterm_MaxValue, final_MaxValue) {
     try {
-    	console.log("added values default");
+    	
         test_MaxValues['Homework_MaxValue'] = homework_MaxVal;
         test_MaxValues['Lab_MaxValue'] = lab_MaxValue;
         test_MaxValues['Project_MaxValue'] = project_MaxValue;
         test_MaxValues['Presentation_MaxValue'] = presentation_MaxValue;
         test_MaxValues['Midterm_MaxValue'] = midterm_MaxValue;
         test_MaxValues['Final_MaxValue'] = final_MaxValue;
-        console.log(test_MaxValues);
         return true;
 
     }
@@ -250,7 +248,6 @@ function add_Test_PercentageValues(homework_PercentageVal, lab_PercentageValue, 
             test_PercentageValues['Presentation_PercentageValue'] = presentation_PercentageValue;
             test_PercentageValues['Midterm_PercentageValue'] = midterm_PercentageValue;
             test_PercentageValues['Final_PercentageValue'] = final_PercentageValue;
-            console.log(test_PercentageValues);
             return true;
             
         }
@@ -359,14 +356,13 @@ function add_finalGrade_Ranges(A_least, A_max, B_least, B_max, C_least, C_max, D
     try {
         
         var total= (A_max-A_least)+(B_max-B_least)+(C_max-C_least)+(D_max-D_least)+(F_max-F_least);
-        console.log(total);
     	if(total+4 === 100){
     		 finalGrade_ranges['A'] = { 'least': A_least, 'max': A_max };
        		 finalGrade_ranges['B'] = { 'least': B_least, 'max': B_max };
        		 finalGrade_ranges['C'] = { 'least': C_least, 'max': C_max };
        		 finalGrade_ranges['D'] = { 'least': D_least, 'max': D_max };
        		 finalGrade_ranges['F'] = { 'least': F_least, 'max': F_max };
-       		 console.log(finalGrade_ranges);
+       		
         return true;
     	}else{
     		return false;
@@ -531,22 +527,43 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 
     function setUpFancySelect(){
     
-        var mySelect=$('#studentselect')
-        console.log("niceSelect");
-        console.log(mySelect);
-        //mySelect.niceSelect();
+        var mySelect=$('#studentselect');
 
         var getStudentURL = "https://serene-taiga-60780.herokuapp.com/getallstudents";
 
         $.get( "https://serene-taiga-60780.herokuapp.com/getallstudents", function( data ) {
              studentJSON=data;
-             console.log(studentJSON);
              mySelect.empty();
 
              for(var x=0 ; x<studentJSON.length;x++){
                 mySelect.append('<option value='+studentJSON[x]["ID"]+'>'+studentJSON[x]["first name"]+' '+studentJSON[x]["last name"]+'</option>');
              }
              mySelect.niceSelect();
+        });
+
+    }
+
+    function setStudentInfo(){
+        var studentable=$('.responstable');
+
+        $.get( "https://serene-taiga-60780.herokuapp.com/getallstudents", function( data ) {
+             studentJSON=data;
+             
+             
+              
+              console.log("this is studenttable");
+              console.log(studentable);
+             //studentable.empty();
+              //studenttable.append('<tr><th>Name</th><th>Grade and ID</th><th>StudentID</th></tr>');
+             
+             // for(var x=0 ; x<studentJSON.length;x++){
+             //    studentable.append('<tr> <td>'+studentJSON[x]["first name"]+'</td>'+'<td>'+'Hi'+'</td>');
+             // }
+             //studentable.empty();
+             //studenttable.append('hi');
+
+
+            
         });
 
     }
@@ -566,6 +583,8 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 			get_TestPercentage_Values();
 			get_final_GradeRange();
             setUpFancySelect();
+            setStudentInfo();
+            
 		});
 
 		$('main').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
@@ -586,7 +605,6 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 jQuery(document).ready(function($){
 
 
-   
     //$('.student-table').footable();
 
 	add_default_values();
