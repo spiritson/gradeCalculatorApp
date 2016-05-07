@@ -2,12 +2,8 @@
 	//Globals
 var loader;
 var HWvalue;
-
-
-
-
-
-
+var selectedStudent;
+var studentJSON;
 
 //Grade calc logic
 var test_MaxValues = {};
@@ -268,7 +264,6 @@ function add_Test_PercentageValues(homework_PercentageVal, lab_PercentageValue, 
         return false;
     }
 
-
 }
 
 function parseNumtoStr(arg1,arg2){
@@ -387,7 +382,7 @@ function add_finalGrade_Ranges(A_least, A_max, B_least, B_max, C_least, C_max, D
 
 function  startCalc(){
 
-    var result=calculate_GPA(
+    var resultGrade=calculate_GPA(
         $('#homeworkpoints').val(),
         $('#labpoints').val(),
         $('#Projectpoints').val(),
@@ -397,14 +392,30 @@ function  startCalc(){
 
     
 
-    if(typeof(parseInt(result)) != 'number'){
+    if(typeof(parseInt(resultGrade)) != 'number'){
         alert("Please enter points according to Rubric");
     }
     else{
-        document.getElementById("finalGradeResult").innerHTML = "Final Grade is" + result;    
+        $( ".grade-text" ).empty();
+        $( ".grade-text" ).append( "<h3>Final Grade is:</h3><br>" );
+        $( ".grade-text" ).append(resultGrade);
+
+        var gradeData={
+            "studentid" : selectedStudent,
+            "grade" : resultGrade
+        }
+
+        console.log(gradeData);
+
+        //POST grade to DB
+        $.post( "https://serene-taiga-60780.herokuapp.com/savestudentgrade",gradeData)
+            .done(function( data ) {
+              console.log(data);
+        });
+
+        //document.getElementById("finalGradeResult").innerHTML = "Final Grade is" + result;    
     }
     
-
 }
 
 function calculate_GPA(homework_value, lab_value, project_value, presentation_value, midterm_value, final_value) {
@@ -518,6 +529,28 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 		$('main').toggleClass('scale-down', bool);
 	}
 
+    function setUpFancySelect(){
+    
+        var mySelect=$('#studentselect')
+        console.log("niceSelect");
+        console.log(mySelect);
+        //mySelect.niceSelect();
+
+        var getStudentURL = "https://serene-taiga-60780.herokuapp.com/getallstudents";
+
+        $.get( "https://serene-taiga-60780.herokuapp.com/getallstudents", function( data ) {
+             studentJSON=data;
+             console.log(studentJSON);
+             mySelect.empty();
+
+             for(var x=0 ; x<studentJSON.length;x++){
+                mySelect.append('<option value='+studentJSON[x]["ID"]+'>'+studentJSON[x]["first name"]+' '+studentJSON[x]["last name"]+'</option>');
+             }
+             mySelect.niceSelect();
+        });
+
+    }
+
 	function loadNewContent(newSection) {
 		//create a new section element and insert it into the DOM
 		var section = $('<section class="cd-section '+newSection+'"></section>').appendTo($('main'));
@@ -532,6 +565,7 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 			get_TestMax_Values();
 			get_TestPercentage_Values();
 			get_final_GradeRange();
+            setUpFancySelect();
 		});
 
 		$('main').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
@@ -551,6 +585,9 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 
 jQuery(document).ready(function($){
 
+
+   
+    //$('.student-table').footable();
 
 	add_default_values();
 
@@ -582,11 +619,13 @@ jQuery(document).ready(function($){
 		}
 	});
 
-
-
-
+    
 });
 
+$(document).on('change', '#studentselect', function() {
+        selectedStudent = $('#studentselect').val();
+        console.log(selectedStudent);
+});
 
 
 

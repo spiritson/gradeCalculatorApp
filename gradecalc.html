@@ -40,30 +40,43 @@
 			</header>
 
 			<div class="cd-content" id="gradeCalculator">
-			<form>
-			<label for="homeworkpoints">HomeWork</label>
-      		<input type="text" name="homeworkpoints" id="homeworkpoints" required><br>
-
-      		<label for="labpoints">Lab</label>
-      		<input type="text" name="labpoints" id="labpoints" required><br>
-
-      		<label for="Projectpoints">Project</label>
-      		<input type="text" name="Projectpoints" id="Projectpoints" required><br>
-
-      		<label for="Presentationpoints">Presentation</label>
-      		<input type="text" name="Presentationpoints" id="Presentationpoints" required><br>
-
-      		<label for="Midtermpoints">Midterm</label>
-      		<input type="text" name="Midtermpoints" id="Midtermpoints" required><br>
-
-      		<label for="FinalPoints">Final</label>
-      		<input type="text" name="FinalPoints" id="FinalPoints" required><br>
-      		</form>
+			<form class="questions">
 			
-			<button id="compute" onclick="startCalc()">Compute Grade</button><br>
+			<div class="question">
+			<input type="text" name="homeworkpoints" id="homeworkpoints" required>
+			<label>HomeWork</label>
+			</div>
+      		
+      		<div class="question">
+			<input type="text" name="labpoints" id="labpoints" required>
+			<label>Lab</label>
+			</div>
 
-			<div id="finalGradeResult">
+			<div class="question">
+			<input type="text" name="Projectpoints" id="Projectpoints" required>
+			<label>Project</label>
+			</div>
+
+			<div class="question">
+			<input type="text" name="Presentationpoints" id="Presentationpoints" required>
+			<label>Presentation</label>
+			</div>
+
+			<div class="question">
+			<input type="text" name="Midtermpoints" id="Midtermpoints" required>
+			<label>Midterm</label>
+			</div>
+
+			<div class="question">
+			<input type="text" name="FinalPoints" id="FinalPoints" required>
+			<label>FinalPoints</label>
+			</div>
+			</form>
 			
+			<button class="mybtn" id="compute" onclick="startCalc()">Compute Grade</button>
+
+			<br><br>
+			<div class="grade-text" id="finalGradeResult">
 			</div>
 
 			</div>
