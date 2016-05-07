@@ -35,6 +35,40 @@ Main Components
 
 -------------------------------- */
 
+.hidemyContent{
+
+  display: none;
+}
+
+.showmyContent{
+
+  display: block;
+}
+
+.show-hide-course{
+  padding-top: 20px;
+}
+.course-btn{
+  font-size: 16px;
+  display: inline-block;
+  padding: 1.2em 1.6em;
+  border-radius: 50em;
+  border: 2px solid rgba(240,240,240,0.5);
+  font-weight: 700;
+  color: #ffffff;
+  font-family: "Lora", serif;
+  background-color: transparent;
+}
+
+.main-course{
+  padding-top:0px !important;
+}
+
+.course-btn:hover{
+  border: 2px solid rgba(180,255,255,0.5);
+  cursor: pointer;
+}
+
 .inline-sliders{
   display: inline-block;
 }
@@ -179,7 +213,7 @@ Main Components
 
 .mybtn{
    border: 1px solid #ff4a56;
-   background-color: none;
+   background-color: transparent;
    color: #ff4a56;
    -webkit-border-radius: 17px;
    -moz-border-radius: 17px;

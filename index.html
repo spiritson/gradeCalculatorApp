@@ -22,17 +22,16 @@
 			<header>
 				<div class="cd-title">
 					<h2>Select a Course</h2>
-					<a id="myLink" title="Click to select Course"
- 						href="#course-235">CMPE 235</a>
- 					<a id="myLink" title="Click to select Course"
- 					href="#course-285">CMPE 285</a>
+					<button  class="course-btn" id="course1">CMPE 235</button>
+ 					<button  class="course-btn" id="course2">CMPE 285</button>
+ 					<div class="show-hide-course hidemyContent">
+ 						<h3>Scroll Down to View GreenSheeet</h3>
+ 					</div>
 				</div> <!-- .cd-title -->
 			</header>
 
-			<div class="cd-content">
-				<div id="course-235">
-				</div>
-				<div id="course-285">
+			<div class="cd-content main-course">
+				<div id="courseInfo" class="section course-info">
 				</div>
 			</div>
 
@@ -116,9 +115,7 @@
 	<script src="js/jquery.nice-select.min.js"></script>
 	<link rel="stylesheet" href="css/nice-select.css">
 	<script src="js/custom.js"></script>
-
-
-
+	
 	
 </body>
 </html>

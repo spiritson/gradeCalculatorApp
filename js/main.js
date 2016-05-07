@@ -2,7 +2,7 @@
 	//Globals
 var loader;
 var HWvalue;
-var selectedStudent;
+var selectedStudent='';
 var studentJSON;
 
 //Grade calc logic
@@ -378,6 +378,12 @@ function add_finalGrade_Ranges(A_least, A_max, B_least, B_max, C_least, C_max, D
 
 function  startCalc(){
 
+    if(selectedStudent === 'undefined' || selectedStudent === ''){
+        alert("Please Select a student");   
+    }
+    else{
+
+
     var resultGrade=calculate_GPA(
         $('#homeworkpoints').val(),
         $('#labpoints').val(),
@@ -411,7 +417,7 @@ function  startCalc(){
 
         //document.getElementById("finalGradeResult").innerHTML = "Final Grade is" + result;    
     }
-    
+      }
 }
 
 function calculate_GPA(homework_value, lab_value, project_value, presentation_value, midterm_value, final_value) {
@@ -514,12 +520,6 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 }
 
 
-//Individual Element events (on click, on select etc..)
-
-
-
-
-
 	function toggleNav(bool) {
 		$('.cd-nav-container, .cd-overlay').toggleClass('is-visible', bool);
 		$('main').toggleClass('scale-down', bool);
@@ -534,7 +534,7 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
         $.get( "https://serene-taiga-60780.herokuapp.com/getallstudents", function( data ) {
              studentJSON=data;
              mySelect.empty();
-
+             mySelect.append('<option>Select Student...</option>');
              for(var x=0 ; x<studentJSON.length;x++){
                 mySelect.append('<option value='+studentJSON[x]["ID"]+'>'+studentJSON[x]["first name"]+' '+studentJSON[x]["last name"]+'</option>');
              }
@@ -543,27 +543,27 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 
     }
 
+    function appendTableColumn(table, rowData) {
+         var lastRow = $('<tr/>').appendTo(table.find('tbody:last'));
+         $.each(rowData, function(colIndex, c) { 
+          lastRow.append($('<td/>').text(c));
+        });
+        return lastRow;
+    }
+
     function setStudentInfo(){
-        var studentable=$('.responstable');
+        var student_table=$('.responstable');
 
         $.get( "https://serene-taiga-60780.herokuapp.com/getallstudents", function( data ) {
              studentJSON=data;
-             
-             
               
-              console.log("this is studenttable");
-              console.log(studentable);
-             //studentable.empty();
-              //studenttable.append('<tr><th>Name</th><th>Grade and ID</th><th>StudentID</th></tr>');
+             student_table.empty();
+             student_table.append('<tr><th>Name</th><th>Grade and ID</th><th>StudentID</th></tr>');
              
-             // for(var x=0 ; x<studentJSON.length;x++){
-             //    studentable.append('<tr> <td>'+studentJSON[x]["first name"]+'</td>'+'<td>'+'Hi'+'</td>');
-             // }
-             //studentable.empty();
-             //studenttable.append('hi');
-
-
-            
+             for(var x=0 ; x<studentJSON.length;x++){
+                appendTableColumn(student_table,[studentJSON[x]["first name"],studentJSON[x]["Grade"],studentJSON[x]["ID"]]);
+             }
+             
         });
 
     }
@@ -636,6 +636,46 @@ jQuery(document).ready(function($){
 			toggleNav(false);
 		}
 	});
+
+    $('#course1').on('click',function(event){
+
+        var curBtn=$('#course1');
+        var prevBtn=$('#course2');
+        var course1_235=$('#courseInfo');
+        var showHideCourse=$('.show-hide-course');
+
+        course1_235.empty();
+        console.log("course1 clicked");
+        $.get("https://serene-taiga-60780.herokuapp.com/getgreensheet/cmpe235", function( data ) {
+             course1_235.html(data);
+             showHideCourse.removeClass("hidemyContent");
+             showHideCourse.addClass("showmyContent");
+             prevBtn.css("border","2px solid rgba(255, 255, 255, 0.5)");
+             curBtn.css("border","2px solid rgba(255, 0, 0, 0.5)");
+
+        });
+
+
+       // window.location.href="#courseInfo";
+       // event.preventDefault();
+    });
+
+    $('#course2').on('click',function(event){
+
+        var curBtn=$('#course2');
+        var prevBtn=$('#course1');
+
+        var course2_285=$('#courseInfo');
+        course2_285.empty();
+        console.log(course2_285);
+        $.get("https://serene-taiga-60780.herokuapp.com/getgreensheet/cmpe285", function( data ) {
+             course2_285.html(data);
+             prevBtn.css("border","2px solid rgba(255, 255, 255, 0.5)");
+             curBtn.css("border","2px solid rgba(255, 0, 0, 0.5)");
+        });
+        //window.location.href="#courseInfo";
+
+    });
 
     
 });
