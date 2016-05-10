@@ -1,10 +1,15 @@
 
 // Landing Page events
+
+//global variables
+
+var loggedIn_userName;
+
 jQuery(document).ready(function($) {
 
   $('#landingPageBtn').hide();
-  
-  
+
+
   //SignUp Submit Click
   $('#registration_submit').on('click',function(event) {
 
@@ -63,6 +68,7 @@ jQuery(document).ready(function($) {
      var two_factor_form=$('#two_factor_form');
 
     var username = $('#signin_UName').val();
+
     console.log(typeof username);
     console.log("clicked");
     var password = $('#signin_Pwd').val();
@@ -75,6 +81,7 @@ jQuery(document).ready(function($) {
         success: function(data) {
           if(data != null) {
             console.log("Data is not null");
+            loggedIn_userName = username;
           }
         },
         complete: function(data) {
@@ -98,8 +105,44 @@ jQuery(document).ready(function($) {
   });
 
 
-  $('#otpVerify').click(function(){
-    window.location.href="home.html";
+  $('#otpVerify').click(function() {
+    //ajax call to node to verify otp
+
+    event.preventDefault();
+
+    var otp_code = $('#signin_OtpCode').val();
+
+    console.log("otpVerify clicked");
+    console.log(otp_code);
+    //if(otp_code != '') {
+      $.ajax({
+        url: 'https://serene-taiga-60780.herokuapp.com/sendOtp',
+        type: 'POST',
+        data: {otpCode : otp_code, uName : loggedIn_userName},
+        success: function(data) {
+          if(data != null) {
+            console.log("Data is not null");
+          }
+        },
+        complete: function(data) {
+          console.log("data.status: "+data.status);
+          if(data.status == 200) {
+            console.log("Complete fired");
+            console.log("data in complete" + JSON.stringify(data));
+
+            //relocation page
+            window.location.href="home.html";
+          }
+        },
+        error : function() {
+          window.alert("Wrong OTP found");
+        },
+      });
+    //}
+    return false;
+
+
+
   });
 
   //signUp Anchor Click
@@ -116,7 +159,7 @@ jQuery(document).ready(function($) {
     $('#headerDiv').hide('slow');
     $('#signInfrom').show('slow');
     $('#signUpfrom').hide();
-    $('#two_factor_form').hide();   
+    $('#two_factor_form').hide();
     $('#landingPageBtn').show('slow');
   });
 
