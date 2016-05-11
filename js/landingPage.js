@@ -5,6 +5,8 @@
 
 var loggedIn_userName;
 
+var endPointUrl = "https://cryptic-cliffs-83814.herokuapp.com";
+
 jQuery(document).ready(function($) {
 
   $('#landingPageBtn').hide();
@@ -28,7 +30,7 @@ jQuery(document).ready(function($) {
     if(teacher_Name !='' && teacher_Phone !='' && teacher_UName !='' && teacher_Pwd !='' &&  teacher_Courses !='') {
       $.ajax({
         // url: '/clBorrower/'+userName.val()+'/'+passWord.val(),
-        url: 'https://serene-taiga-60780.herokuapp.com/signup',
+        url: endPointUrl + '/signup',
         type: 'POST',
         data: { name: teacher_Name, phone_number : teacher_Phone, username : teacher_UName, password : teacher_Pwd},
         success: function(data) {
@@ -75,7 +77,7 @@ jQuery(document).ready(function($) {
     if(username != '' && password != '') {
       console.log('inside check');
       $.ajax({
-        url: 'https://serene-taiga-60780.herokuapp.com/login',
+        url: endPointUrl + '/login',
         type: 'POST',
         data: {username : username, password : password},
         success: function(data) {
@@ -104,7 +106,7 @@ jQuery(document).ready(function($) {
     return false;
   });
 
-
+  // OTP Verify Submit
   $('#otpVerify').click(function() {
     //ajax call to node to verify otp
 
@@ -116,7 +118,7 @@ jQuery(document).ready(function($) {
     console.log(otp_code);
     //if(otp_code != '') {
       $.ajax({
-        url: 'https://serene-taiga-60780.herokuapp.com/sendOtp',
+        url: endPointUrl + '/sendOtp',
         type: 'POST',
         data: {otpCode : otp_code, uName : loggedIn_userName},
         success: function(data) {
