@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <title>GradeCalculator</title>
 	<link href='http://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
@@ -17,8 +17,8 @@
 
 <body>
 	<a class="cd-nav-trigger landing-page-btn hidemyContent" id="landingPageBtn">
-		Menu<span><!-- used to create the menu icon --></span>
-	</a> <!-- .cd-nav-trigger -->
+		Menu<span></span>
+	</a>
 
 	<main>
 		<section class="cd-section  careers cd-selected landing-intro-page-color">
@@ -28,10 +28,10 @@
 					<div class="cd-intro-content mask">
 						<h1 class="main-font" data-content="GRADE CALCULATOR"><span>GRADE CALCULATOR</span></h1>
 						<div class="action-wrapper">
-							<p>
-								<a href="#0" id="signUpAnchor" class="cd-btn main-action ">Sign Up</a>
-								<a href="#0" id="signInAnchor" class="cd-btn ">Sign In</a>
-							</p>
+							<p class="inline-wrap">
+								<a href="#" id="signUpAnchor" class="cd-btn main-action btn-signup ">Sign Up</a>
+								<a href="#" id="signInAnchor" class="cd-btn btn-signin">Sign In</a>
+						  </p>
 						</div>
 					</div>
 				</div>
@@ -55,7 +55,7 @@
 					<label>User Name</label>
 				</div>
 				<div class="question">
-					<input type="text" id="teacher_Pwd" required/>
+					<input type="password" id="teacher_Pwd" required/>
 					<label>Password</label>
 				</div>
 				<div class="question">
@@ -74,7 +74,7 @@
 					<label>User Name</label>
 				</div>
 				<div class="question">
-					<input type="text" id="signin_Pwd" required/>
+					<input type="password" id="signin_Pwd" required/>
 					<label>Password</label>
 				</div>
 
@@ -85,7 +85,7 @@
 			<form id="two_factor_form" style="display:none; margin-top:5%; margin-bottom:5%" action="home.html">
 
 				<div class="question">
-					<input type="text" id="signin_OtpCode" required/>
+					<input type="password" id="signin_OtpCode" required/>
 					<label>Enter OTP Code</label>
 				</div>
 

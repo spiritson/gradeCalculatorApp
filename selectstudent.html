@@ -9,20 +9,20 @@
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-  	
+
 	<title>Grade Calculator</title>
 </head>
 <body>
 	<a href="#cd-nav" class="cd-nav-trigger">
 		Menu<span><!-- used to create the menu icon --></span>
 	</a> <!-- .cd-nav-trigger -->
-	
+
 	<main>
 		<section class="cd-section about cd-selected">
 			<header>
 				<div class="cd-title">
 					<h2>Select Student</h2>
-				
+
 					<select id="studentselect">
  						<option value="">Loading Students...</option>
 					</select>
@@ -31,11 +31,18 @@
 
 			<div class="cd-content">
 				<!-- <p class="testclass">hello</p> -->
-				
+				<div class="selected-student-table" id="selectedStudentInfo">
+				<table class="responstable">
+						<tbody>
+
+						</tbody>
+
+					</table>
+			</div>
 			</div>
 		</section> <!-- .cd-section -->
 	</main>
-	
+
 	<nav class="cd-nav-container" id="cd-nav">
 		<header>
 			<h3>Options</h3>
@@ -103,7 +110,7 @@
 	</nav>
 
 	<div class="cd-overlay"><!-- shadow layer visible when navigation is visible --></div>
-	
+
 <script src="js/jquery-2.1.1.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 </body>

@@ -39,8 +39,10 @@ function get_TestMax_Values() {
 
 
 	$("#hw").roundSlider({
-    radius: 85,
+    radius: 70,
+    width: 10,
     sliderType: "min-range",
+    handleSize: "30,10",
     min: 1,
     max: 1500,
     value: self.test_MaxValues.Homework_MaxValue
@@ -49,9 +51,11 @@ function get_TestMax_Values() {
 
 
 	$("#labs").roundSlider({
-    radius: 85,
+    radius: 70,
+    width: 10,
     min: 1,
     max: 1500,
+    handleSize: "30,10",
     sliderType: "min-range",
     value: self.test_MaxValues.Lab_MaxValue
 	});
@@ -59,9 +63,11 @@ function get_TestMax_Values() {
 
 
 	$("#project").roundSlider({
-    radius: 85,
+    radius: 70,
+    width: 10,
     min: 1,
     max: 1500,
+    handleSize: "30,10",
     sliderType: "min-range",
     value: test_MaxValues.Project_MaxValue
 	});
@@ -69,9 +75,11 @@ function get_TestMax_Values() {
 
 
 	$("#presentation").roundSlider({
-    radius: 85,
+    radius: 70,
+    width: 10,
     min: 1,
     max: 1500,
+    handleSize: "30,10",
     sliderType: "min-range",
     value: test_MaxValues.Presentation_MaxValue
 	});
@@ -79,9 +87,11 @@ function get_TestMax_Values() {
 
 
 	$("#midterm").roundSlider({
-    radius: 85,
+    radius: 70,
+    width: 10,
     min: 1,
     max: 1500,
+    handleSize: "30,10",
     sliderType: "min-range",
     value: test_MaxValues.Midterm_MaxValue
 	});
@@ -89,9 +99,11 @@ function get_TestMax_Values() {
 
 
 	$("#final").roundSlider({
-    radius: 85,
+    radius: 70,
+    width: 10,
     min: 1,
     max: 1500,
+    handleSize: "30,10",
     sliderType: "min-range",
     value: test_MaxValues.Final_MaxValue,
 	});
@@ -160,49 +172,61 @@ function get_TestPercentage_Values() {
     //$('#element name').val();
 
     $("#hw_scale").roundSlider({
-    radius: 85,
+      radius: 70,
+      width: 10,
     sliderType: "min-range",
     min: 1,
     max: 100,
+    handleSize: "30,10",
     value: test_PercentageValues['Homework_PercentageVal'],
     tooltipFormat: "tooltipVal2"
 	});
 $("#labs_scale").roundSlider({
-    radius: 85,
+  radius: 70,
+  width: 10,
     min: 1,
     max: 100,
+    handleSize: "30,10",
     sliderType: "min-range",
     value: test_PercentageValues['Lab_PercentageValue'],
     tooltipFormat: "tooltipVal2"
 	});
 $("#project_scale").roundSlider({
-    radius: 85,
+  radius: 70,
+  width: 10,
     min: 1,
     max: 100,
+    handleSize: "30,10",
     sliderType: "min-range",
     value: test_PercentageValues['Project_PercentageValue'],
     tooltipFormat: "tooltipVal2"
 	});
 $("#presentation_scale").roundSlider({
-    radius: 85,
+  radius: 70,
+  width: 10,
     min: 1,
     max: 100,
+    handleSize: "30,10",
     sliderType: "min-range",
     value: test_PercentageValues['Presentation_PercentageValue'],
     tooltipFormat: "tooltipVal2"
 	});
 $("#midterm_scale").roundSlider({
-    radius: 85,
+  radius: 70,
+  width: 10,
     min: 1,
     max: 100,
+    handleSize: "30,10",
     sliderType: "min-range",
     value: test_PercentageValues['Midterm_PercentageValue'],
     tooltipFormat: "tooltipVal2"
 	});
 $("#final_scale").roundSlider({
-    radius: 85,
+  radius: 70,
+  width: 10,
     min: 1,
     max: 100,
+    handleSize: "30,10",
     sliderType: "min-range",
     value: test_PercentageValues['Final_PercentageValue'],
     tooltipFormat: "tooltipVal2"
@@ -278,32 +302,42 @@ function get_final_GradeRange() {
     //$('#element name').val();
 
     $("#A_Grade").roundSlider({
-    		radius: 85,
+      radius: 70,
+      width: 10,
+      handleSize: "30,10",
     		sliderType: "range",
     		value: parseNumtoStr(finalGrade_ranges['A'].least,finalGrade_ranges['A'].max)
 		});
 
     $("#B_Grade").roundSlider({
-    		radius: 85,
+      radius: 70,
+      width: 10,
+      handleSize: "30,10",
     		sliderType: "range",
     		value: parseNumtoStr(finalGrade_ranges['B'].least,finalGrade_ranges['B'].max)
 		});
 
     $("#C_Grade").roundSlider({
-    		radius: 85,
+      radius: 70,
+      width: 10,
+      handleSize: "30,10",
     		sliderType: "range",
     		value: 20,
     		value: parseNumtoStr(finalGrade_ranges['C'].least,finalGrade_ranges['C'].max)
 		});
 
     $("#D_Grade").roundSlider({
-    		radius: 85,
+      radius: 70,
+      width: 10,
+      handleSize: "30,10",
     		sliderType: "range",
     		value: parseNumtoStr(finalGrade_ranges['D'].least,finalGrade_ranges['D'].max)
 		});
 
     $("#F_Grade").roundSlider({
-    		radius: 85,
+      radius: 70,
+      width: 10,
+      handleSize: "30,10",
     		sliderType: "range",
     		value: parseNumtoStr(finalGrade_ranges['F'].least,finalGrade_ranges['F'].max)
 		});
@@ -405,16 +439,20 @@ function  startCalc(){
         $( ".grade-text" ).append( "<h3>Final Grade is:</h3><br>" );
         $( ".grade-text" ).append(resultGrade);
 
+        console.log("slected student");
+        console.log(selectedStudent);
         var gradeData={
             "studentid" : selectedStudent,
             "grade" : resultGrade
         }
 
+        console.log("gradeData");
         console.log(gradeData);
 
         //POST grade to DB
-        $.post( "https://serene-taiga-60780.herokuapp.com/savestudentgrade",gradeData)
+        $.post( endPointUrl+"/savestudentgrade",gradeData)
             .done(function( data ) {
+              console.log("saving student grade is success");
               console.log(data);
         });
 
@@ -462,6 +500,8 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
         }
         else {
             //error in project test result
+            console.log('project_value: ' + project_value);
+            console.log('test_MaxValue: ' + test_MaxValues['Project_MaxValue']);
             return 'error in project value';
         }
 
@@ -502,10 +542,16 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 
         var final_Result = sumOf_allTests * 100;
 
+        final_Result = Math.ceil(final_Result);
+
         console.log('final Percentage: ' + final_Result);
 
         // looping through the finalGrade_ranges json -> comparing each grades range with fina_Result
         for (var key in finalGrade_ranges) {
+          console.log(key + ' final_Result: ' + final_Result);
+          console.log(key + ' least: ' + finalGrade_ranges[key]['least']);
+          console.log(key + ' max: ' + finalGrade_ranges[key]['max']);
+
             if (final_Result >= finalGrade_ranges[key]['least'] && final_Result <= finalGrade_ranges[key]['max']) {
                 return_Val = key;
             }
@@ -528,10 +574,12 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 		$('main').toggleClass('scale-down', bool);
 	}
 
+
     function setUpFancySelect(){
 
         var mySelect=$('#studentselect');
-
+        //mySelect.niceSelect();
+        console.log('inside fancyselect');
         $.get( endPointUrl + "/getallstudents", function( data ) {
              studentJSON=data;
              mySelect.empty();
@@ -540,6 +588,7 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
                 mySelect.append('<option value='+studentJSON[x]["ID"]+'>'+studentJSON[x]["first name"]+' '+studentJSON[x]["last name"]+'</option>');
              }
              mySelect.niceSelect();
+             console.log(studentJSON);
         });
 
     }
@@ -559,7 +608,7 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
              studentJSON=data;
 
              student_table.empty();
-             student_table.append('<tr><th>Name</th><th>Grade and ID</th><th>StudentID</th></tr>');
+             student_table.append('<tr><th>Name</th><th>Grade and ID</th></tr>');
 
              for(var x=0 ; x<studentJSON.length;x++){
                 appendTableColumn(student_table,[studentJSON[x]["first name"],studentJSON[x]["Grade"],studentJSON[x]["ID"]]);
@@ -583,8 +632,8 @@ function calculate_GPA(homework_value, lab_value, project_value, presentation_va
 			get_TestMax_Values();
 			get_TestPercentage_Values();
 			get_final_GradeRange();
-            setUpFancySelect();
-            setStudentInfo();
+      setUpFancySelect();
+      setStudentInfo();
 
 		});
 
@@ -609,6 +658,7 @@ jQuery(document).ready(function($){
     //$('.student-table').footable();
 
 	add_default_values();
+
 
 	//open navigation clicking the menu icon
 	$('.cd-nav-trigger').on('click', function(event){
@@ -689,7 +739,37 @@ jQuery(document).ready(function($){
 
 });
 
+function selectedStudentInfo(finalSelectedStudent){
+
+  var student_table=$('.responstable');
+
+
+       student_table.empty();
+       student_table.append('<tr><th>Name</th><th>Details</th></tr>');
+
+       console.log("printing detail");
+       console.log(finalSelectedStudent);
+       appendTableColumn(student_table,[finalSelectedStudent["first name"],finalSelectedStudent["last name"],finalSelectedStudent["ID"],finalSelectedStudent["email"],finalSelectedStudent["phone number"],finalSelectedStudent["grade"]]);
+
+
+}
+
+
 $(document).on('change', '#studentselect', function() {
         selectedStudent = $('#studentselect').val();
         console.log(selectedStudent);
+
+        var finalSelectedStudent={};
+
+        $.each(studentJSON, function(i, v) {
+        if (v.ID == selectedStudent) {
+            // found it...
+            finalSelectedStudent=v;
+
+            return false; // stops the loop
+        }
+       });
+
+
+       selectedStudentInfo(finalSelectedStudent);
 });

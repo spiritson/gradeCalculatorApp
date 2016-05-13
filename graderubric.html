@@ -11,23 +11,23 @@
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 
 	<script src="js/jquery-2.1.1.js"></script>
-	<script src="js/main.js"></script> <!-- Resource jQuery -->                                   
+	<script src="js/main.js"></script> <!-- Resource jQuery -->
 	<title>Grade Calculator</title>
 
 </head>
 <body>
-	
+
 	<a href="#cd-nav" class="cd-nav-trigger">
 		Menu<span><!-- used to create the menu icon --></span>
 	</a> <!-- .cd-nav-trigger -->
-	
+
 	<main>
 		<section class="cd-section projects cd-selected">
 
 			<header>
 				<div class="cd-title">
 					<h2>Grade Rubric</h2>
-					
+
 					<a href="#gradeSetter">
 						Click to Set Grade Rubric
 					</a>
@@ -45,22 +45,22 @@
 					<h4>Labs</h4>
 		   			<div id="labs"></div>
 					</div>
-		   			
+
 		   			<div class="inline-sliders">
 		   			<h4>Project</h4>
 		   			<div id="project"></div>
 		   			</div>
-	
+
 		   			<div class="inline-sliders">
 		   				<h4>Presentation</h4>
 		   				<div id="presentation"></div>
 		   			</div>
-	
+
 		   			<div class="inline-sliders">
 		   			<h4>Midterm</h4>
 		   			<div id="midterm"></div>
 		   			</div>
-	
+
 		   			<div class="inline-sliders">
 		   			<h4>Final</h4>
 		   			<div id="final"></div>
@@ -81,28 +81,28 @@
 					<h4>Labs</h4>
 		   			<div id="labs_scale"></div>
 					</div>
-		   			
+
 		   			<div class="inline-sliders">
 		   			<h4>Project</h4>
 		   			<div id="project_scale"></div>
 		   			</div>
-	
+
 		   			<div class="inline-sliders">
 		   				<h4>Presentation</h4>
 		   				<div id="presentation_scale"></div>
 		   			</div>
-	
+
 		   			<div class="inline-sliders">
 		   			<h4>Midterm</h4>
 		   			<div id="midterm_scale"></div>
 		   			</div>
-	
+
 		   			<div class="inline-sliders">
 		   			<h4>Final</h4>
 		   			<div id="final_scale"></div>
 		   			</div>
 		   			<br>
-		   			<div class="setter-buttons">
+		   			<div class="setter-buttons" style="left: 28%;">
       					<button id="setScaling" onclick="update_TestPercentage_Values()">Set Percentages</button>
 					</div>
       			</div>
@@ -110,43 +110,43 @@
 
       			<div id="setGradeLetter">
 					<h2 class="Points"><strong>Letter Grade Range</strong></h2><br>
-					
+
 					<div class="inline-sliders">
 					<h4>A</h4>
 					<div id="A_Grade"></div>
 					</div>
-					
+
 					<div class="inline-sliders">
 					<h4>B</h4>
 		   			<div id="B_Grade"></div>
 					</div>
-		   			
+
 		   			<div class="inline-sliders">
 		   			<h4>C</h4>
 		   			<div id="C_Grade"></div>
 		   			</div>
-	
+
 		   			<div class="inline-sliders">
 		   				<h4>D</h4>
 		   				<div id="D_Grade"></div>
 		   			</div>
-	
+
 		   			<div class="inline-sliders">
 		   			<h4>F</h4>
 		   			<div id="F_Grade"></div>
 		   			</div>
-	
+
 		   			<br>
-		   			<div class="setter-buttons">
+		   			<div class="setter-buttons" style="left: 28%;">
       					<button id="setLetterGrade" onclick="update_final_GradeRange()">Set LetterGrade</button>
 					</div>
       			</div>
-				
-      		
-		
+
+
+
 		</section> <!-- .cd-section -->
 	</main>
-	
+
 	<nav class="cd-nav-container" id="cd-nav">
 		<header>
 			<h3>Options</h3>

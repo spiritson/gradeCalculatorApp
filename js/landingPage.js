@@ -6,6 +6,7 @@
 var loggedIn_userName;
 
 var endPointUrl = "https://cryptic-cliffs-83814.herokuapp.com";
+//var endPointUrl = "http://localhost:8080";
 
 jQuery(document).ready(function($) {
 
@@ -43,8 +44,8 @@ jQuery(document).ready(function($) {
           if(data.status == 200) {
             console.log("Complete fired");
             console.log("data in complete" + data);
-            //relocation page
-            //page.redirect
+            alert("SignUp Success");
+            window.location.href = "index.html";
           }
           else {
             console.log("Username or Password is wrong");
@@ -94,8 +95,8 @@ jQuery(document).ready(function($) {
 
             //relocation page
             //window.location.href = "home.html";
-             login_form.hide('slow');
-             two_factor_form.show('slow');
+            login_form.hide();
+            two_factor_form.show();
           }
         },
         error : function() {
@@ -149,29 +150,31 @@ jQuery(document).ready(function($) {
 
   //signUp Anchor Click
   $('#signUpAnchor').click(function() {
-    $('#headerDiv').hide('slow');
-    $('#signUpfrom').show('slow');
+    $('#headerDiv').hide();
     $('#signInfrom').hide();
     $('#two_factor_form').hide();
-    $('#landingPageBtn').show('slow');
+    $('#signUpfrom').show();
+    $('#landingPageBtn').show();
   });
 
   //signIp Anchor Click
   $('#signInAnchor').click(function() {
-    $('#headerDiv').hide('slow');
-    $('#signInfrom').show('slow');
+    $('#headerDiv').hide();
     $('#signUpfrom').hide();
     $('#two_factor_form').hide();
-    $('#landingPageBtn').show('slow');
+    $('#signInfrom').show();
+    $('#landingPageBtn').show();
   });
 
 
   $('#landingPageBtn').click(function(){
-    $('#headerDiv').show('slow');
+
     $('#signUpfrom').hide();
     $('#signInfrom').hide();
-    // $('#two_factor_form').hide();
+    $('#two_factor_form').hide();
     $('#landingPageBtn').hide();
+    $('#headerDiv').show();
+
 
   });
 
